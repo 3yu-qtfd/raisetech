@@ -8,7 +8,7 @@ AWS上にVPC、EC2、RDSを構築のうえEC2からRDSへ正常に接続出来�
 ### 構築した環境
 1. VPC<br>
 - VPCのウィザードを活用し、プライベートサブネット、パブリックサブネットを作成する。
-<img width="965" alt="vpc" src="https://user-images.githubusercontent.com/118968276/233093924-472896c1-5580-4e1c-b4f9-2bccf8e3466d.png">
+![ec2_01](images/ec2_01.png)
 
 2. EC2<br>
 - Amazon Linuxのインスタンスを起動する。

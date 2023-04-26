@@ -37,4 +37,4 @@ MySQLに必要なリポジトリをダウンロードのうえ、yumコマンド
 ### EC2からRDSへの接続確認
 RDSのエンドポイント、MySQL用のポート番号、ユーザ名を指定して接続。<br>
 RDS作成時に設定したパスワードを入力して接続できたことを確認。
-![mysql](mysql.png)
+![mysql](images/mysql.png)

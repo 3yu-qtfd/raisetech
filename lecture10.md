@@ -27,7 +27,7 @@ CloudFormation を利用して、現在までに作った環境をコード化�
 
 ### 構築した環境
 - VPC
-![VPC](images/lecture10/1_VPC.PNG) 
+![VPC](images/lecture10/1_VPC.PNG)  
 ![VPC_パブリックサブネット](images/lecture10/2_VPC_PublicSubnet-1a.PNG)  
 ![VPC_パブリックサブネット](images/lecture10/3_VPC_PrivateSubnet-1a.PNG)  
 ![VPC_プライベートサブネット](images/lecture10/4_VPC_PublicSubnet-1c.PNG)  

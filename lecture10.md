@@ -23,37 +23,37 @@ CloudFormation を利用して、現在までに作った環境をコード化�
 - RDSのパスワードはテンプレートに平文で記載せず、自動生成するように設定。接続前にコンソール上でパスワード変更する想定。
 
 - VPC、セキュリティグループ、EC2、ALB、RDS、S3 の順でスタックを作成し、環境構築に成功。 
-![CloudFormationスタック](images/0_CloudFormation_stack.PNG)  
+![CloudFormationスタック](images/lecture10/0_CloudFormation_stack.PNG)  
 
 ### 構築した環境
 - VPC
-![VPC](images/1_VPC.PNG) 
-![VPC_パブリックサブネット](images/2_VPC_PublicSubnet-1a.PNG)  
-![VPC_パブリックサブネット](images/3_VPC_PrivateSubnet-1a.PNG)  
-![VPC_プライベートサブネット](images/4_VPC_PublicSubnet-1c.PNG)  
-![VPC_プライベートサブネット](images/5_VPC_PrivateSubnet-1c.PNG)  
+![VPC](images/lecture10/1_VPC.PNG) 
+![VPC_パブリックサブネット](images/lecture10/2_VPC_PublicSubnet-1a.PNG)  
+![VPC_パブリックサブネット](images/lecture10/3_VPC_PrivateSubnet-1a.PNG)  
+![VPC_プライベートサブネット](images/lecture10/4_VPC_PublicSubnet-1c.PNG)  
+![VPC_プライベートサブネット](images/lecture10/5_VPC_PrivateSubnet-1c.PNG)  
 
 - セキュリティグループ
-![セキュリティグループ](images/6_SecurityGroup_all.PNG)  
+![セキュリティグループ](images/lecture10/6_SecurityGroup_all.PNG)  
 
 - EC2
-![EC2](images/7_EC2.PNG) 
-![EC2セキュリティグループ](images/8_EC2_SecurityGroup.PNG)  
+![EC2](images/lecture10/7_EC2.PNG) 
+![EC2セキュリティグループ](images/lecture10/8_EC2_SecurityGroup.PNG)  
 
 - ALB
-![ALB](images/9_ALB.PNG)  
-![ALBセキュリティグループ](images/10_ALB_SecurityGroup.PNG)  
-![ALBセキュリティグループ](images/11_ALB_SecurityGroup.PNG)  
+![ALB](images/lecture10/9_ALB.PNG)  
+![ALBセキュリティグループ](images/lecture10/10_ALB_SecurityGroup.PNG)  
+![ALBセキュリティグループ](images/lecture10/11_ALB_SecurityGroup.PNG)  
 
 - RDS
-![RDS](images/12_RDS.PNG) 
-![RDS](images/13_RDS.PNG) 
-![RDSセキュリティグループ](images/14_RDS_SecurityGroup.PNG)  
-![RDSセキュリティグループ](images/15_RDS_SecurityGroup.PNG) 
+![RDS](images/lecture10/12_RDS.PNG) 
+![RDS](images/lecture10/13_RDS.PNG) 
+![RDSセキュリティグループ](images/lecture10/14_RDS_SecurityGroup.PNG)  
+![RDSセキュリティグループ](images/lecture10/15_RDS_SecurityGroup.PNG) 
 
 - S3
-![S3](images/16_S3.PNG) 
-![S3バケットポリシー](images/17_S3_BucketPolicy.PNG) 
+![S3](images/lecture10/16_S3.PNG) 
+![S3バケットポリシー](images/lecture10/17_S3_BucketPolicy.PNG) 
 
 ***
 

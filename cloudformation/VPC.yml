@@ -10,6 +10,13 @@ Parameters:
     Type: String
     Default: "lecture10"
 
+#-------------------------------------------------------------------
+# Region(added on 2023.12.04)
+#-------------------------------------------------------------------
+  Region:
+    Description: The AWS region for the VPC stack
+    Type: String
+
 Resources: 
 #-------------------------------------------------------------------
 # VPC, Internet Gateway
@@ -46,7 +53,10 @@ Resources:
   PublicSubnet1a:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: ap-northeast-1a
+      AvailabilityZone: !Select
+        - 0
+        - !GetAZs:
+          !Ref 'AWS::Region'
       VpcId: !Ref VPC
       CidrBlock: 10.0.1.0/24
       Tags:
@@ -57,7 +67,10 @@ Resources:
   PublicSubnet1c:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: ap-northeast-1c
+      AvailabilityZone:  !Select
+        - 1
+        - !GetAZs:
+          !Ref 'AWS::Region'
       VpcId: !Ref VPC
       CidrBlock: 10.0.2.0/24
       Tags:
@@ -68,7 +81,10 @@ Resources:
   PrivateSubnet1a:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: ap-northeast-1a
+      AvailabilityZone:  !Select
+        - 0
+        - !GetAZs:
+          !Ref 'AWS::Region'
       VpcId: !Ref VPC
       CidrBlock: 10.0.3.0/24
       Tags:
@@ -79,7 +95,10 @@ Resources:
   PrivateSubnet1c:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: ap-northeast-1c
+      AvailabilityZone:  !Select
+        - 1
+        - !GetAZs:
+          !Ref 'AWS::Region'
       VpcId: !Ref VPC
       CidrBlock: 10.0.4.0/24
       Tags:

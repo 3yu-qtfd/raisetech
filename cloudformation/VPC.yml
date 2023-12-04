@@ -55,8 +55,7 @@ Resources:
     Properties:
       AvailabilityZone: !Select
         - 0
-        - !GetAZs:
-          !Ref 'AWS::Region'
+        - !GetAZs: !Ref "AWS::Region"
       VpcId: !Ref VPC
       CidrBlock: 10.0.1.0/24
       Tags:
@@ -69,8 +68,7 @@ Resources:
     Properties:
       AvailabilityZone:  !Select
         - 1
-        - !GetAZs:
-          !Ref 'AWS::Region'
+        - !GetAZs: !Ref "AWS::Region"
       VpcId: !Ref VPC
       CidrBlock: 10.0.2.0/24
       Tags:
@@ -83,8 +81,7 @@ Resources:
     Properties:
       AvailabilityZone:  !Select
         - 0
-        - !GetAZs:
-          !Ref 'AWS::Region'
+        - !GetAZs: !Ref "AWS::Region"
       VpcId: !Ref VPC
       CidrBlock: 10.0.3.0/24
       Tags:
@@ -97,8 +94,7 @@ Resources:
     Properties:
       AvailabilityZone:  !Select
         - 1
-        - !GetAZs:
-          !Ref 'AWS::Region'
+        - !GetAZs: !Ref "AWS::Region"
       VpcId: !Ref VPC
       CidrBlock: 10.0.4.0/24
       Tags:

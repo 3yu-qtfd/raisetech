@@ -25,9 +25,9 @@ CircleCI のサンプルコンフィグを提供しますので、これが正�
 
 - CircleCIのアカウントを作成し、Githubと連携するよう設定する。 
 
-- 課題用リポジトリ「Raisetech」の直下に「.circleci」ディレクトリを作成し、「config.yml」ファイルを配置する。 
+- 課題用リポジトリ「raisetech」の直下に「.circleci」ディレクトリを作成し、「config.yml」ファイルを配置する。 
 
-- 課題用リポジトリ「Raisetech」の直下に「coudformation」ディレクトリを作成し、cfn-lintでチェックしたいymlファイルを配置する。 
+- 課題用リポジトリ「raisetech」の直下に「coudformation」ディレクトリを作成し、cfn-lintでチェックしたいymlファイルを配置する。 
 
 - ローカルのGitでコミットとpushを行い、Githubと連動してCircleCIでテストが行われることを確認する。
 

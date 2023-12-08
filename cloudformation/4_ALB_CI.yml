@@ -6,9 +6,9 @@ Parameters:
 # Base Name
 #-------------------------------------------------------------------
   Namebase:
-    Description: base name for lecture10
+    Description: base name for lecture13
     Type: String
-    Default: "lecture10"
+    Default: "lecture13"
 
 Resources: 
 #-------------------------------------------------------------------

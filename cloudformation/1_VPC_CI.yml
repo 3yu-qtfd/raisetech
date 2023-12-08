@@ -1,3 +1,44 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: VPC Create
+
+Parameters: 
+#-------------------------------------------------------------------
+# Base Name
+#-------------------------------------------------------------------
+  Namebase:
+    Description: base name for lecture13
+    Type: String
+    Default: "lecture13"
+
+Resources: 
+#-------------------------------------------------------------------
+# VPC, Internet Gateway
+#-------------------------------------------------------------------
+#VPC
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/21
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: !Sub "${Namebase}-vpc"
+
+#Internet Gateway
+  InternetGateway: 
+    Type: AWS::EC2::InternetGateway
+    Properties: 
+      Tags: 
+        - Key: Name
+          Value: !Sub "${Namebase}-igw"
+
+  InternetGatewayAttachment: 
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties: 
+      InternetGatewayId: !Ref InternetGateway
+      VpcId: !Ref VPC
+
 #-------------------------------------------------------------------
 # Subnet
 #-------------------------------------------------------------------

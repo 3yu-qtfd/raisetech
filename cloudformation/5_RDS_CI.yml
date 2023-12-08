@@ -6,22 +6,34 @@ Parameters:
 # Base Name
 #-------------------------------------------------------------------
   Namebase:
-    Description: base name for lecture10
+    Description: base name for lecture13
     Type: String
-    Default: "lecture10"
+    Default: "lecture13"
 
 Resources:
 #-------------------------------------------------------------------
 # RDS Instance
 #-------------------------------------------------------------------
 #RDS Instance
+  RDSSecret:
+    Type: "AWS::SecretsManager::Secret"
+    Properties:
+      Description: "RDS password for my RDS instance"
+      GenerateSecretString:
+        SecretStringTemplate: '{"username": "admin"}'
+        GenerateStringKey: "password"
+        PasswordLength: 16
+        ExcludeCharacters: '"@/\'
+
   RDS:
     Type: AWS::RDS::DBInstance
     Properties:
       AllocatedStorage: 20
       DBInstanceClass: db.t3.micro
       AutoMinorVersionUpgrade: false
-      AvailabilityZone: ap-northeast-1a
+      AvailabilityZone:  !Select
+        - 1
+        - Fn::GetAZs: !Ref "AWS::Region"
       DBInstanceIdentifier: !Sub "${Namebase}-rds"
       DBName: !Sub "${Namebase}db"
       DBSubnetGroupName: !Ref DBSubnetGroup
@@ -29,7 +41,7 @@ Resources:
       EngineVersion: 8.0.32
       LicenseModel: general-public-license
       MasterUsername: admin
-      MasterUserPassword: password1!  #後でマスクする
+      MasterUserPassword: !Sub '{{resolve:secretsmanager:${RDSSecret}:SecretString:password}}'
       MultiAZ: false
       Port: 3306
       PubliclyAccessible: false

@@ -6,9 +6,9 @@ Parameters:
 # Base Name
 #-------------------------------------------------------------------
   Namebase:
-    Description: base name for lecture10
+    Description: base name for lecture13
     Type: String
-    Default: "lecture10"
+    Default: "lecture13"
 
 Resources:
 #-------------------------------------------------------------------
@@ -23,7 +23,9 @@ Resources:
       ImageId: ami-0f89bdd365c3d966d  #Amazon Linux 2 AMI（HVM）、9月18日時点
       InstanceType: t2.micro
       Monitoring: true
-      AvailabilityZone: ap-northeast-1a
+      AvailabilityZone:  !Select
+        - 1
+        - Fn::GetAZs: !Ref "AWS::Region"
       SubnetId: !ImportValue PublicSubnet1a
       SecurityGroupIds:
         - !ImportValue SecGroupEC2

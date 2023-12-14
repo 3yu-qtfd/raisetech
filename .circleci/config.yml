@@ -29,4 +29,5 @@ workflows:
   raisetech:
     jobs:
       - cfn-lint
-      - cfn-deploy      
+      - cfn-deploy:
+          context: AWS

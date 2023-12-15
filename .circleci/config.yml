@@ -18,12 +18,9 @@ jobs:
     executor: aws-cli/default
     steps:
       - checkout
-      - aws-cli/install
       - aws-cli/setup:
           role-arn: 'arn:aws:iam::442663203070:role/lecture13-circleci-cfn'
           aws-region: "ap-northeast-1"
-      - aws-cli/assume_role_with_web_identity:
-          role_arn: arn:aws:iam::442663203070:role/lecture13-circleci-cfn
       - run:
           name: run cfn-deploy
           command: |

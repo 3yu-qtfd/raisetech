@@ -15,7 +15,8 @@ jobs:
           command: |
             cfn-lint -i W3002 -t cloudformation/*.yml
   cfn-deploy:
-    executor: aws-cli/default
+    machine:
+      image: ubuntu-2204:current
     steps:
       - checkout
       - aws-cli/install

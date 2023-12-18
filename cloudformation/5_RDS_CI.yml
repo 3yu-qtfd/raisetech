@@ -15,7 +15,7 @@ Resources:
 # RDS Instance
 #-------------------------------------------------------------------
 #RDS Instance
-  RDSSecret:
+  RDSSecretForCI:
     Type: "AWS::SecretsManager::Secret"
     Properties:
       Description: "RDS password for my RDS instance"
@@ -25,7 +25,7 @@ Resources:
         PasswordLength: 16
         ExcludeCharacters: '"@/\'
 
-  RDS:
+  RDSForCI:
     Type: AWS::RDS::DBInstance
     Properties:
       AllocatedStorage: 20
@@ -48,7 +48,7 @@ Resources:
       StorageEncrypted: true
       StorageType: gp2
       VPCSecurityGroups:
-        - !ImportValue SecGroupRDS
+        - !ImportValue SecGroupRDSForCI
       Tags:
         - Key: Name
           Value: !Sub "${Namebase}-rds"
@@ -57,14 +57,14 @@ Resources:
 # DB Subnet Group
 #-------------------------------------------------------------------
 #DB Subnet Group
-  DBSubnetGroup:
+  DBSubnetGroupForCI:
     Type: AWS::RDS::DBSubnetGroup
     Properties: 
       DBSubnetGroupDescription: Private Subnet Group for RDS
       DBSubnetGroupName: !Sub "${Namebase}-subnet-rds"
       SubnetIds: 
-        - !ImportValue PrivateSubnet1a
-        - !ImportValue PrivateSubnet1c 
+        - !ImportValue PrivateSubnet1aForCI
+        - !ImportValue PrivateSubnet1cForCI
       Tags: 
         - Key: Name
           Value: !Sub "${Namebase}-subnet-rds"

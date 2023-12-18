@@ -15,10 +15,10 @@ Resources:
 # EC2 Instance,Key Pair, Elastic IP Address
 #-------------------------------------------------------------------
 #EC2
-  EC2:
+  EC2ForCI:
     Type: AWS::EC2::Instance
     Properties:
-      KeyName: !Ref KeyPair
+      KeyName: !Ref KeyPairForCI
       DisableApiTermination: false
       ImageId: ami-0f89bdd365c3d966d  #Amazon Linux 2 AMI（HVM）、9月18日時点
       InstanceType: t2.micro
@@ -26,38 +26,38 @@ Resources:
       AvailabilityZone:  !Select
         - 1
         - Fn::GetAZs: !Ref "AWS::Region"
-      SubnetId: !ImportValue PublicSubnet1a
+      SubnetId: !ImportValue PublicSubnet1aForCI
       SecurityGroupIds:
-        - !ImportValue SecGroupEC2
+        - !ImportValue SecGroupEC2ForCI
       Tags:
         - Key: Name
           Value: !Sub "${Namebase}-ec2"
 
 #Key Pair
-  KeyPair:
+  KeyPairForCI:
     Type: AWS::EC2::KeyPair
     Properties:
-      KeyName: EC2KeyPair
+      KeyName: EC2KeyPairForCI
       KeyType: rsa
 
 #Elastic IP Address
-  ElasticIP:
+  ElasticIPForCI:
     Type: "AWS::EC2::EIP"
     Properties:
       Domain: vpc
 
-  ElasticIPAssociate:
+  ElasticIPAssociateForCI:
     Type: AWS::EC2::EIPAssociation
     Properties: 
-      AllocationId: !GetAtt ElasticIP.AllocationId
-      InstanceId: !Ref EC2
+      AllocationId: !GetAtt ElasticIPForCI.AllocationId
+      InstanceId: !Ref EC2ForCI
 
 Outputs:
 #-------------------------------------------------------------------
 # Outputs
 #-------------------------------------------------------------------
 #EC2
-  EC2:
-    Value: !Ref EC2
+  EC2ForCI:
+    Value: !Ref EC2ForCI
     Export: 
-      Name: EC2
+      Name: EC2ForCI

@@ -15,41 +15,41 @@ Resources:
 # ALB
 #-------------------------------------------------------------------
 #ALB
-  ALB:
+  ALBForCI:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties: 
       Name: !Sub "${Namebase}-alb"
       Type: application
       Scheme: internet-facing
       SecurityGroups: 
-        - !ImportValue SecGroupALB
+        - !ImportValue SecGroupALBForCI
       Subnets:
-        - !ImportValue PublicSubnet1a
-        - !ImportValue PublicSubnet1c
+        - !ImportValue PublicSubnet1aForCI
+        - !ImportValue PublicSubnet1cForCI
       Tags:
         - Key: Name
           Value: !Sub "${Namebase}-alb"
       
 #ALB Listener
-  ALBListener:
+  ALBListenerForCI:
     Type: AWS::ElasticLoadBalancingV2::Listener
     Properties:
-      LoadBalancerArn: !Ref ALB
+      LoadBalancerArn: !Ref ALBForCI
       DefaultActions: 
         - Type: forward
-          TargetGroupArn: !Ref ALBTargetGroup
+          TargetGroupArn: !Ref ALBTargetGroupForCI
       Port: 80
       Protocol: HTTP
 
 #ALB Target Group
-  ALBTargetGroup:
+  ALBTargetGroupForCI:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties: 
       Name: !Sub "${Namebase}-alb-tgp"
-      VpcId: !ImportValue VPC
+      VpcId: !ImportValue VPCForCI
       TargetType: instance
       Targets: 
-        - Id: !ImportValue EC2
+        - Id: !ImportValue EC2ForCI
       Port: 80
       Protocol: HTTP
       ProtocolVersion: HTTP1

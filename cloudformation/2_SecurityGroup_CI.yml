@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: SecurityGroup Create
+Description: SecurityGroup Create via CircleCI
 
 Parameters: 
 #-------------------------------------------------------------------

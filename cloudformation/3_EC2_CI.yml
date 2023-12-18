@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: EC2 Create
+Description: EC2 Create via CircleCI
 
 Parameters: 
 #-------------------------------------------------------------------

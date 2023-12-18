@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: RDS Create
+Description: RDS Create via CircleCI
 
 Parameters: 
 #-------------------------------------------------------------------

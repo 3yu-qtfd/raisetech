@@ -131,7 +131,7 @@ Resources:
       IpProtocol: tcp
       FromPort: 3306
       ToPort: 3306
-      SourceSecurityGroupId: !GetAtt SecGroupEC2.GroupId
+      SourceSecurityGroupId: !GetAtt SecGroupEC2ForCI.GroupId
 
 Outputs:
 #-------------------------------------------------------------------

@@ -36,12 +36,12 @@ Resources:
         - Fn::GetAZs: !Ref "AWS::Region"
       DBInstanceIdentifier: !Sub "${Namebase}-rds"
       DBName: !Sub "${Namebase}db"
-      DBSubnetGroupName: !Ref DBSubnetGroup
+      DBSubnetGroupName: !Ref DBSubnetGroupForCI
       Engine: mysql
       EngineVersion: 8.0.32
       LicenseModel: general-public-license
       MasterUsername: admin
-      MasterUserPassword: !Sub '{{resolve:secretsmanager:${RDSSecret}:SecretString:password}}'
+      MasterUserPassword: !Sub '{{resolve:secretsmanager:${RDSSecretForCI}:SecretString:password}}'
       MultiAZ: false
       Port: 3306
       PubliclyAccessible: false

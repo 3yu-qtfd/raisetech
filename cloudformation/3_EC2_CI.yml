@@ -24,7 +24,7 @@ Resources:
       InstanceType: t2.micro
       Monitoring: true
       AvailabilityZone: !Select
-        - 1
+        - 0
         - Fn::GetAZs: !Ref "AWS::Region"
       SubnetId: !ImportValue PublicSubnet1aForCI
       SecurityGroupIds:

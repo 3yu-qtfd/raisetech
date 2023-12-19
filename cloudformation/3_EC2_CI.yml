@@ -23,7 +23,7 @@ Resources:
       ImageId: ami-0f89bdd365c3d966d  #Amazon Linux 2 AMI（HVM）、9月18日時点
       InstanceType: t2.micro
       Monitoring: true
-      AvailabilityZone:  !Select
+      AvailabilityZone: !Select
         - 1
         - Fn::GetAZs: !Ref "AWS::Region"
       SubnetId: !ImportValue PublicSubnet1aForCI
@@ -42,7 +42,7 @@ Resources:
 
 #Elastic IP Address
   ElasticIPForCI:
-    Type: "AWS::EC2::EIP"
+    Type: AWS::EC2::EIP
     Properties:
       Domain: vpc
 
